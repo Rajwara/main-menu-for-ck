@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>responsive navbar</title>
+    <style>
+        .nav__link {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .dropdown .arrow {
+            margin-left: 5px;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .arrow {
+            transform: rotate(180deg);
+        }
+        
+        a.logo img {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+        
+        .nav__link a {
+            text-decoration: none;
+            color: #5E5A5A;
+            font-family: "Plus Jakarta Sans", Sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        /* nav styles */
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .hamburger {
+            padding-right: 20px;
+            cursor: pointer;
+        }
+        
+        .hamburger .line {
+            display: block;
+            width: 35px;
+            height: 3px;
+            margin-bottom: 8px;
+            background-color: #5E5A5A;
+            border-radius: 10px;
+        }
+        
+        .nav__link {
+            position: fixed;
+            width: 94%;
+            top: 5rem;
+            left: 18px;
+            margin-right: 0px !important;
+        }
+        
+        .nav__link a {
+            display: block;
+            text-align: center;
+            font-family: "Plus Jakarta Sans", Sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            text-transform: capitalize;
+            padding: 15px 20px;
+        }
+        
+        .nav__link a:hover {
+            color: #FC5583;
+        }
+        
+        .nav__link a:active {
+            color: #FC5583;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        @media screen and (min-width: 701px) and (max-width:786px) {
+            .nav__link a {
+                padding: 15px 15px;
+            }
+        }
+        
+        @media screen and (min-width: 600px) and (max-width:700px) {
+            .nav__link a {
+                padding: 7px;
+            }
+        }
+        
+        @media screen and (min-width: 320px) and (max-width:599px) {
+            .nav__link {
+                position: fixed;
+                width: 200px;
+                top: 7rem;
+                margin-right: 0px !important;
+                background: #fff;
+                left: 30%;
+            }
+            .nav__link a {
+                border-bottom: 1px solid #ddd;
+            }
+            .dropdown-menu li {
+                border-bottom: 0px solid #ddd !important;
+            }
+            a.logo img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        @media screen and (min-width: 600px) {
+            .nav__link {
+                display: flex;
+                position: static;
+                width: auto;
+                margin-right: 20px;
+                background: none;
+            }
+            .nav__link a {
+                display: inline-block;
+            }
+            .hamburger {
+                display: none;
+            }
+        }
+        /*dropdown css code*/
+        
+        .dropdown {
+            position: relative;
+            /* margin-right: 15px;
+            */
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            /* Position below the parent item */
+            left: 0;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+            background: #fff;
+        }
+        
+        .dropdown-menu li {
+            border-bottom: 1px solid #ddd;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        
+        .dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-transform: capitalize;
+            font-family: "Plus Jakarta Sans", Sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            color: #5E5A5A;
+            text-align: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .dropdown-menu a:hover {
+            font-family: "Plus Jakarta Sans", Sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            color: #FC5583;
+        }
+        /* Show dropdown on hover */
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <a href="/" class="logo"><img src="https://dev.colorkahar.com/wp-content/uploads/2023/08/CK-logo-3.png" alt=""></a>
+
+            <div class="hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+
+            <div class="nav__link hide">
+                <a href="/">Home</a>
+                <div class="dropdown">
+                    <a href="/all-product-category/">Products <span class="">&#9662;</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/themed-photobooks/">Themed Photobook</a></li>
+                        <li><a href="/photo-prints/">Photo Prints</a></li>
+                        <li><a href="/custom-photobook/">Custom Photobook</a></li>
+                        <li><a href="/retro-photo-prints/">Retro Prints</a></li>
+                        <li><a href="/mugs/">Mugs</a></li>
+                        <li><a href="/wallart/">Wallart</a></li>
+                        <li><a href="/calendars/">Calendars</a></li>
+                        <li><a href="/gifts/">Gifts</a></li>
+                    </ul>
+                </div>
+                <a href="/our-story/">Story</a>
+                <a href="/offers/">Offers</a>
+                <a href="/how-to/">Guide</a>
+                <a href="/blogs/">Blogs</a>
+                <a href="/contact-us/">Contact</a>
+                <a href="/treefund/">Treefund</a>
+
+
+            </div>
+        </nav>
+    </header>
+</body>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLink = document.querySelector('.nav__link');
+
+    // Toggle menu visibility when the hamburger is clicked
+    hamburger.addEventListener('click', (event) => {
+        navLink.classList.toggle('hide');
+        event.stopPropagation(); // Prevent the click event from propagating to the document
+    });
+
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', (event) => {
+        // Check if the clicked element is not inside the menu or the hamburger
+        if (!navLink.contains(event.target) && !hamburger.contains(event.target)) {
+            navLink.classList.add('hide');
+        }
+    });
+</script>
+
+
+
+</html>
